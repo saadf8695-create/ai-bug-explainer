@@ -5,6 +5,7 @@ function generateToken(user) {
     expires: Date.now() + 3600000
   };
 }
+//test-n8n
 
 function validateToken(token) {
   // BUG: mkaynch check ila token null
