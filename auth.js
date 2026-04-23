@@ -6,6 +6,7 @@ function generateToken(user) {
   };
 }
 //test-n8n
+//test.ngrok
 
 function validateToken(token) {
   // BUG: mkaynch check ila token null
