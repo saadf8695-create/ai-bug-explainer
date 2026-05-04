@@ -20,3 +20,9 @@ jobs:
         
       - name: Run Tests
         run: npx jest
+      - name: Notify n8n on Failure
+        if: failure()
+        run: |
+          curl -X POST "https://heterofermentative-unbleeding-jutta.ngrok-free.dev/webhook/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" \
+          -H "Content-Type: application/json" \
+          -d '{"status": "failed", "msg": "Erreur f GitHub Actions!"}'
