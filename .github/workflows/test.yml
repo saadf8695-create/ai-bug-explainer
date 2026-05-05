@@ -25,4 +25,4 @@ jobs:
         run: |
           curl -X POST "https://heterofermentative-unbleeding-jutta.ngrok-free.dev/webhook/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" \
           -H "Content-Type: application/json" \
-          -d '{"status": "failed", "msg": "Erreur f GitHub Actions!"}'
+         -d '{"status": "failed", "chat_id": "6150806884", "repo": "${{ github.repository }}", "run_id": "${{ github.run_id }}", "msg": "Test failed in ${{ github.repository }}"}'
