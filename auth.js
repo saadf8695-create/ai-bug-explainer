@@ -7,7 +7,7 @@ function generateToken(user) {
 }
 //test-n8n
 //test.ngrok
-//rah3iiit
+//rah3iiits
 //saadddddddas
 s
 function validateToken(token) {
