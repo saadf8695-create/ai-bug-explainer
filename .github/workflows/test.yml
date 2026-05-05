@@ -10,20 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          
+
       - name: Install Jest
         run: npm install jest --save-dev
-        
+
       - name: Run Tests
         run: npx jest
+
       - name: Notify n8n on Failure
         if: failure()
         run: |
-          curl -X POST "https://heterofermentative-unbleeding-jutta.ngrok-free.dev/webhook/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" \
+          curl -X POST "https://heterofermentative-unbleeding-jutta.ngrok-free.app/webhook/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" \
           -H "Content-Type: application/json" \
-         -d '{"status": "failed", "chat_id": "6150806884", "repo": "${{ github.repository }}", "run_id": "${{ github.run_id }}", "msg": "Test failed in ${{ github.repository }}"}'
+          -d '{"status": "failed", "chat_id": "6150806884", "repo": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
