@@ -25,6 +25,26 @@ jobs:
       - name: Notify n8n on Failure
         if: failure()
         run: |
-          curl -X POST "https://heterofermentative-unbleeding-jutta.ngrok-free.dev/webhook/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" \
-          -H "Content-Type: application/json" \
-          -d '{"status": "failed", "chat_id": "6150806884", "repo": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
+          curl -X POST https://heterofermentative-unbleeding-jutta.ngrok-free.dev/webhook/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 \
+-H "Content-Type: application/json" \
+-d '{
+  "action": "completed",
+  "telegram_chat_id": "6150806884",
+  "check_run": {
+    "id": 72962735276,
+    "status": "completed",
+    "conclusion": "failure",
+    "name": "test",
+    "output": {
+      "title": "Unit Test Failure",
+      "summary": "Error: SyntaxError in auth.js at line 15",
+      "text": "Detailed log: expected true but got false"
+    }
+  },
+  "repository": {
+    "full_name": "saadf8695-create/ai-bug-explainer"
+  },
+  "sender": {
+    "login": "saad"
+  }
+}'
